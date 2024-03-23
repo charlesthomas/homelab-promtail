@@ -1,4 +1,4 @@
-_commit: v1.6.12-10-g27c763c
+_commit: v1.8.2
 _src_path: /home/crthomas/code/charlesthomas/homelab-template
 additionalResources: ''
 backups: false
@@ -9,6 +9,7 @@ helmRelease: promtail
 helmRepo: https://grafana.github.io/helm-charts
 helmValues: helm/values.yaml
 helmVersion: ''
+homepageEnabled: false
 ingress: false
 labels: ''
 name: promtail
