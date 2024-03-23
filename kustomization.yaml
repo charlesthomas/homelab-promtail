@@ -8,6 +8,23 @@ commonAnnotations:
 
 resources:
 - resources/namespaces.yaml
+patches:
+- patch: |-
+    apiVersion: networking.k8s.io/v1
+    kind: Ingress
+    metadata:
+      name: promtail
+      namespace: promtail
+      annotations:
+        gethomepage.dev/href: https://promtail.crt.house
+        gethomepage.dev/enabled: "true"
+        gethomepage.dev/description: 
+        gethomepage.dev/group: 
+        gethomepage.dev/icon: promtail
+        gethomepage.dev/name: promtail
+        gethomepage.dev/pod-selector: ""
+  target:
+    kind: Ingress
 helmCharts:
 - name: promtail
   namespace: promtail
