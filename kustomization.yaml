@@ -7,10 +7,8 @@ commonAnnotations:
   repo: https://github.com/charlesthomas/homelab-promtail
 
 resources:
+- resources/configmaps.yaml
+- resources/daemon-sets.yaml
 - resources/namespaces.yaml
-helmCharts:
-- name: promtail
-  namespace: promtail
-  releaseName: promtail
-  repo: https://grafana.github.io/helm-charts
-  valuesFile: helm/values.yaml
+- resources/rbac.yaml
+- resources/service-accounts.yaml
