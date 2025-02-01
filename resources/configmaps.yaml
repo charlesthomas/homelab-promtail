@@ -19,6 +19,27 @@ data:
       filename: /run/promtail/positions.yaml
     scrape_configs:
       # See also https://github.com/grafana/loki/blob/master/production/ksonnet/promtail/scrape_config.libsonnet for reference
+      - job_name: journal
+        journal:
+          path: /var/log/journal
+          max_age: 12h
+          labels:
+            job: systemd-journal
+        relabel_configs:
+          - source_labels: ['__journal__hostname']
+            target_label: host
+          - source_labels: ['__journal__systemd_unit']
+            target_label: systemd_unit
+            regex: '(.+)'
+          - source_labels: ['__journal__systemd_user_unit']
+            target_label: systemd_user_unit
+            regex: '(.+)'
+          - source_labels: ['__journal__transport']
+            target_label: transport
+            regex: '(.+)'
+          - source_labels: ['__journal_priority_keyword']
+            target_label: severity
+            regex: '(.+)'
       - job_name: kubernetes-pods
         pipeline_stages:
           - cri: {}
