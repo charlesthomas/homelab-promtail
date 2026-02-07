@@ -1,8 +1,8 @@
-_commit: v1.12.1-6-gbf0c0a5
+_commit: v1.12.1-10-g6796849
 _src_path: /Users/crthomas/code/charlesthomas/homelab-template
 additionalResources: daemon-sets.yaml
 backups: false
-helm: false 
+helm: false
 homepageEnabled: false
 ingress: false
 labels: ''
@@ -11,9 +11,9 @@ namespace: promtail
 pvc: false
 reloader: false
 resources:
-  - configmaps.yaml
-  - rbac.yaml
-  - service-accounts.yaml
+- configmaps.yaml
+- rbac.yaml
+- service-accounts.yaml
 service: false
 serviceAccount: false
 upstreamURL: https://grafana.com/docs/loki/latest/send-data/promtail/
