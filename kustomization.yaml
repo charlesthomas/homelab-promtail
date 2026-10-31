@@ -12,3 +12,11 @@ resources:
 - resources/namespaces.yaml
 - resources/rbac.yaml
 - resources/service-accounts.yaml
+configMapGenerator:
+- name: grafana-dashboard-promtail
+  files:
+  - grafana/promtail.json
+  options:
+    disableNameSuffixHash: true
+    labels:
+      grafana_dashboard: "1"
